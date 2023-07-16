@@ -10,9 +10,11 @@ To run the service, follow these steps:
 2. Clone this repository or download the source code.
 3. Install the dependencies by running the following command in the project directory:
 
+npm install
 
 4. Start the service using the following command:
 
+npm run start
 
 The service will run on the default port 3000. You can modify the port in the `src/main.ts` file if needed.
 
