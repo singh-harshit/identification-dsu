@@ -7,9 +7,11 @@ import { IdentifyResponseDto } from './dto/response/identifyResponseHandler.dto'
 export class IdentifyController {
   constructor(private readonly identifyService: IdentifyService) {}
   @Post('')
-  identify(@Body() requestBody: IdentifyRequestDto): IdentifyResponseDto {
+  async identify(
+    @Body() requestBody: IdentifyRequestDto,
+  ): Promise<IdentifyResponseDto> {
     const { email, phoneNumber } = requestBody;
-    const response = this.identifyService.identify(email, phoneNumber);
+    const response = await this.identifyService.identify(email, phoneNumber);
     return response;
   }
 }
