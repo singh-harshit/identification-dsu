@@ -11,7 +11,11 @@ export class IdentifyController {
     @Body() requestBody: IdentifyRequestDto,
   ): Promise<IdentifyResponseDto> {
     const { email, phoneNumber } = requestBody;
-    const response = await this.identifyService.identify(email, phoneNumber);
-    return response;
+    try {
+      const response = await this.identifyService.identify(email, phoneNumber);
+      return response;
+    } catch (e) {
+      return e;
+    }
   }
 }

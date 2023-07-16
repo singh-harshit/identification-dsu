@@ -13,7 +13,7 @@ export class Contact {
   id: number;
 
   @Column({ nullable: true })
-  phoneNumber: string;
+  phoneNumber: number;
 
   @Column({ nullable: true })
   email: string;
@@ -21,7 +21,7 @@ export class Contact {
   @Column({ nullable: true })
   linkedId: number;
 
-  @Column({ nullable: true })
+  @Column({ nullable: true, default: 'primary' })
   linkPrecedence: 'secondary' | 'primary';
 
   @CreateDateColumn()
