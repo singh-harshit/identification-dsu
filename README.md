@@ -1,22 +1,30 @@
 # Local In-Memory RDBMS Service
 
 This service hosts a local in-memory Relational Database Management System (RDBMS). It allows you to perform identification queries based on email and phone number inputs.
+## Requirements
+
+- Docker: [Install Docker](https://docs.docker.com/get-docker/)
+
 
 ## Getting Started
 
-To run the service, follow these steps:
+Follow the steps below to run the project using Docker.
 
-1. Make sure you have Node.js installed on your machine.
-2. Clone this repository or download the source code.
-3. Install the dependencies by running the following command in the project directory:
+### 1. Clone the repository
 
-npm install
+git clone https://github.com/singh-harshit/identification-service.git
 
-4. Start the service using the following command:
+cd identification-service
 
-npm run start
+### 2. Build the Docker image
+docker build -t identification-service .
 
-The service will run on the default port 3000. You can modify the port in the `src/main.ts` file if needed.
+### 3. Run the Docker container
+
+docker run -p 3000:3000 identification-service
+
+The application should now be running and accessible at `http://localhost:3000`.
+
 
 ## API Endpoints
 
