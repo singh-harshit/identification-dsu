@@ -1,30 +1,41 @@
 # Local In-Memory RDBMS Service
 
 This service hosts a local in-memory Relational Database Management System (RDBMS). It allows you to perform identification queries based on email and phone number inputs.
-## Requirements
-
-- Docker: [Install Docker](https://docs.docker.com/get-docker/)
-
 
 ## Getting Started
 
-Follow the steps below to run the project using Docker.
+###  Service Hosted Url
 
-### 1. Clone the repository
+https://identification-service.onrender.com
 
-git clone https://github.com/singh-harshit/identification-service.git
+### 2. Use Postman or any other Resources to use cURL
 
-cd identification-service
+Example cURLS
 
-### 2. Build the Docker image
-docker build -t identification-service .
+```
+curl --location 'https://identification-service.onrender.com/identify' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "phoneNumber": "1234567890",
+    "email": "abc@gmail.com"
+}'
+```
 
-### 3. Run the Docker container
+```
+curl --location 'https://identification-service.onrender.com/identify' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "phoneNumber": "1234567890",
+}'
+```
 
-docker run -p 3000:3000 identification-service
-
-The application should now be running and accessible at `http://localhost:3000`.
-
+```
+curl --location 'https://identification-service.onrender.com/identify' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email": "abc@gmail.com"
+}'
+```
 
 ## API Endpoints
 
@@ -53,4 +64,6 @@ export interface IdentifyResponseDto {
   secondaryContactIds: number[];
 }
 ```
+
+
 
